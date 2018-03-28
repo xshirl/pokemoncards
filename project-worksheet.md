@@ -93,17 +93,20 @@ Include the full list of features that will be part of your MVP
     - Change pokemon when pokemon's HP is zero. 
     - See end of game when one player has no more pokemon.
 ## POST MVP
-
-Include the full list of features that you are considering for POST MVP
-## Functional Components
- 
 - Creating Game Initialization Page 
     - shuffling cards
     - displaying backs of cards 
     - flipping cards - CSS transitions to show pokemon
     - pushing pokemon into player's array
     - displaying pokemon on each team
-    
+
+Include the full list of features that you are considering for POST MVP
+## Functional Components
+ 
+function showBoard - show deck of cards
+function shuffleArray - shuffle array function
+function startGame - if/else statements that go through the game moves
+function endGame - clears board/player wins alert
 
 
 Based on the initial logic defined in the previous game phases section try and breakdown the logic further into functional components, and by that we mean functions.  Does your logic indicate that code could be encapsulated for the purpose of reusablility.  Once a function has been defined it can then be incorporated into a class as a method. 
