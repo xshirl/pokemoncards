@@ -83,6 +83,7 @@ Include the full list of features that will be part of your MVP
 - Creating Landing Page 
 - Game play 
     - create pokemon objects with name, type, HP, moves
+    - push pokemon that has been clicked on into players' arrays
     - Show fighting pokemon on screen
     - Fight - press fight button
     - first pokemon is one with higher speed, if/else compare speeds
