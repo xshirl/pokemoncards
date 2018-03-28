@@ -81,42 +81,29 @@ There will be a replay button.
 
 Include the full list of features that will be part of your MVP 
 - Creating Landing Page 
-- Creating Game Initialization Page 
-    - shuffling cards
-    - displaying backs of cards
-    - flipping cards - CSS transitions
-    - pushing pokemon into player's array
-    - create pokemon objects with name, type, HP, moves
 - Game play 
-    - Show pokemon
-    - Fight
+    - create pokemon objects with name, type, HP, moves
+    - Show fighting pokemon on screen
+    - Fight - press fight button
     - first pokemon is one with higher speed, if/else compare speeds
     - Pull move from move array from pokemon object
     - Update HP for both pokemon
-    - Take turns
+    - Take turns - assign true/false, alert
     - Change pokemon when pokemon's HP is zero. 
     - See end of game when one player has no more pokemon.
 ## POST MVP
 
 Include the full list of features that you are considering for POST MVP
 ## Functional Components
-
-- Creating Landing Page - 1hr 
-- Creating Game Initialization Page - 10hrs
+ 
+- Creating Game Initialization Page 
     - shuffling cards
-    - displaying backs of cards
-    - flipping cards - CSS transitions
+    - displaying backs of cards 
+    - flipping cards - CSS transitions to show pokemon
     - pushing pokemon into player's array
-    - create pokemon objects with name, type, HP, moves
-- Game play - 12 hrs
-    - Show pokemon
-    - Fight
-    - first pokemon is one with higher speed, if/else compare speeds
-    - Pull move from move array from pokemon object
-    - Update HP for both pokemon
-    - Take turns
-    - Change pokemon when pokemon's HP is zero. 
-    - See end of game when one player has no more pokemon.
+    - displaying pokemon on each team
+    
+
 
 Based on the initial logic defined in the previous game phases section try and breakdown the logic further into functional components, and by that we mean functions.  Does your logic indicate that code could be encapsulated for the purpose of reusablility.  Once a function has been defined it can then be incorporated into a class as a method. 
 
