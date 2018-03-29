@@ -3,6 +3,7 @@
 body {
   margin:0;
   background-color:black;
+  overflow-x: hidden;
 }
 
 .header {
@@ -48,6 +49,8 @@ body {
   border:2px solid black;
   float:left;
   margin:10px;
+  border-radius:10px;
+  border: 3px solid red;
 }
 
 .board {
@@ -66,6 +69,8 @@ body {
   font-family:"Lato";
   position:relative;
   text-align:center;
+  display:block;
+  margin:auto;
 }
 
 .playerCard {
@@ -78,8 +83,10 @@ body {
   float:left;
   margin:10px;
   position:relative;
-  top: 30%;
-  left:10%;
+  margin-top:50px;
+  left:20%;
+  border-radius:10px;
+  border: 3px solid red;
 }
 
 .playerCard2 {
@@ -92,11 +99,13 @@ body {
   float:left;
   margin:10px;
   position:relative;
-  top: 30%;
+  margin-top:50px;
   left:50%;
+  border-radius:10px;
+  border: 3px solid red;
 }
 
-.fight {
+/*.fight {
   background-color:orange;
   font-family:"Lato";
   font-size:20px;
@@ -112,7 +121,7 @@ background-color:orange;
   position:relative;
   left:200px;
   bottom:0px;
-}
+}*/
 
 .replay {
   background-color:orange;
@@ -124,4 +133,19 @@ background-color:orange;
   margin:auto;
 }
 
+.pokemonName {
+  font-family:"Lato";
+  color:white;
+  margin-top:75px;
+  left:-10%;
+  position:relative;
+}
+
+.pokemon2Name {
+  font-family:"Lato";
+  color:white;
+  margin-top:-60px;
+  left:35%;
+  position:relative;
+}
 

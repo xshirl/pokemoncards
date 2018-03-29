@@ -150,18 +150,22 @@ let cards = shuffle(pokeArray);
     $('.game').append($("<div class='playerCard2'></div>"));
     let pokemon1 = player1pokemon.pop();
     let pokemon2 = player2pokemon.pop()
+    $('.game').append($("<h1 class='pokemonName'></h1>"));
+    $('.game').append($("<h1 class='pokemon2Name'></h1>"));
+    $('.pokemonName').text(`${pokemon1.name}`);
+    $('.pokemon2Name').text(`${pokemon2.name}`);
     $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
     $('.playerCard2').css('background-image', 'url(' + pokemon2.img + ')');
-    $('.game').append($("<button class='fight'>Fight</button>"));
-    $('.game').append($("<button class='fight2'>Fight</button>"));
+    // $('.game').append($("<button class='fight'>Fight</button>"));
+    // $('.game').append($("<button class='fight2'>Fight</button>"));
       let pokemon1HP = 100;
       let pokemon2HP = 100;
       let loss;
 
-    $('.fight').click(function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-
+    // $('.fight').click(function(e) {
+ // player 1 moves
+      $(document).keydown(function(e) {
+        if (e.keyCode === 37) {
       if(pokemon1.type === "water" && pokemon2.type === "fire") {
           loss = 100;
             alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
@@ -334,64 +338,6 @@ let cards = shuffle(pokeArray);
 
       }
 
-      // alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
-      //   loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
-
-
-// if(pokemon1.type === "water" && pokemon2.type === "fire") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-//         loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-//       }
-//        if (player1pokemon.type === 'water' && player2pokemon.type === "grass") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-//       if (pokemon1.type === "water" && pokemon2.type === "rock") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-//         loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-//       }
-
-//       if (player1pokemon.type === 'water' && player2pokemon.type === "dragon") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-//       if (player1pokemon.type === 'water' && player2pokemon.type === "electric") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       } else {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
-//         loses 50 HP. ${pokemon2.name} now has ${pokemon2HP-=50}HP.`);
-//       }
-//   if(pokemon1.type==="fire" && pokemon2.type === "grass") {
-//     alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-//         loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-//       }
-//       if (pokemon1.type==="fire" && pokemon2.type === "rock") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-//       if (pokemon1.type==="fire" && pokemon2.type === "water") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-
-//   if(pokemon1.type==="grass" && pokemon2.type === "water") {
-//     alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-//         loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-//       }
-//       if(pokemon1.type==="grass" && pokemon2.type === "rock") {
-//     alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-//         loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-//       }
-//       if (pokemon1.type==="grass" && pokemon2.type === "fire") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-//       if (pokemon1.type==="grass" && pokemon2.type === "flying") {
-//         alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-//         loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-//       }
-
 
 
 
@@ -399,6 +345,7 @@ let cards = shuffle(pokeArray);
         if (pokemon2HP <= 0) {
           pokemon2 = player2pokemon.pop();
           $('.playerCard2').css('background-image', 'url(' + pokemon2.img + ')');
+          $('.pokemon2Name').text(`${pokemon2.name}`);
           pokemon2HP = 100;
           if (player2pokemon.length === 0) {
             alert("Player 1 wins!");
@@ -409,10 +356,12 @@ let cards = shuffle(pokeArray);
             })
           }
         }
+      }
       });
 
-    $('.fight2').click(function(e) {
-
+    // $('.fight2').click(function(e) {
+    $(document).keydown(function(e) {
+        if (e.keyCode === 39) {
       if(pokemon2.type === "water" && pokemon1.type === "fire") {
           loss = 100;
           alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
@@ -586,51 +535,23 @@ let cards = shuffle(pokeArray);
 
       }
 
-      // alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
-      //   loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
-        // pokemon1HP = pokemon1HP - loss;
 
- //      if(pokemon2.type === "water" && pokemon1.type === "fire") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is super effective! ${pokemon1.name}
- //        loses 100 HP. ${pokemon1.name} now has ${pokemon1HP-=100}HP.`);
- //      }
- //      if (pokemon2.type === "water" && pokemon1.type === "rock") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is super effective! ${pokemon1.name}
- //        loses 100 HP. ${pokemon1.name} now has ${pokemon1HP-=100}HP.`);
- //      }
- //       if (player2pokemon.type === 'water' && player1pokemon.type === "grass") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
- //        loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
- //      } if (player2pokemon.type === 'water' && player1pokemon.type === "dragon") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
- //        loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
- //      }  if (player2pokemon.type === 'water' && player1pokemon.type === "electric") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
- //        loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
- //      } else {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
- //        loses 50 HP. ${pokemon1.name} now has ${pokemon1HP-=50}HP.`);
- //      }
- // if(pokemon2.type==="fire" && pokemon1.type === "grass") {
- //    alert(`${pokemon2.name} uses ${pokemon2.moves}. It is super effective! ${pokemon1.name}
- //        loses 100 HP. ${pokemon1.name} now has ${pokemon1HP-=100}HP.`);
- //      } if (pokemon2.type==="fire" && pokemon1.type === "rock") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
- //        loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
- //      } if (pokemon1.type==="fire" && pokemon2.type === "water") {
- //        alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
- //        loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
- //      }
 
       if(pokemon1HP <= 0) {
           pokemon1 = player1pokemon.pop();
           $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
+          $('.pokemonName').text(`${pokemon1.name}`);
           pokemon1HP = 100;
           if (player1pokemon.length === 0) {
             alert("Player 2 wins!");
             $('.game').hide();
+             $("body").append("<button class='replay'>Replay </button>")
+            $('.replay').on('click', function() {
+              window.location.reload(true);
+            });
           }
         }
+      }
       });
   });
 
