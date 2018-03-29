@@ -114,9 +114,14 @@ background-color:orange;
   bottom:0px;
 }
 
-.next {
+.replay {
   background-color:orange;
+  padding:30px;
   font-family:"Lato";
-  font-size:20px;
-
+  font-size:30px;
+  text-align:center;
+  display:block;
+  margin:auto;
 }
+
+
