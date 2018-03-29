@@ -67,3 +67,56 @@ body {
   position:relative;
   text-align:center;
 }
+
+.playerCard {
+  background-position:center;
+  background-size:cover;
+  width:200px;
+  height:300px;
+  background-color:white;
+  border:2px solid black;
+  float:left;
+  margin:10px;
+  position:relative;
+  top: 30%;
+  left:10%;
+}
+
+.playerCard2 {
+  background-position:center;
+  background-size:cover;
+  width:200px;
+  height:300px;
+  background-color:white;
+  border:2px solid black;
+  float:left;
+  margin:10px;
+  position:relative;
+  top: 30%;
+  left:50%;
+}
+
+.fight {
+  background-color:orange;
+  font-family:"Lato";
+  font-size:20px;
+  position:relative
+  left:-100px;
+  bottom:0px;
+}
+
+.fight2 {
+background-color:orange;
+  font-family:"Lato";
+  font-size:20px;
+  position:relative;
+  left:200px;
+  bottom:0px;
+}
+
+.next {
+  background-color:orange;
+  font-family:"Lato";
+  font-size:20px;
+
+}
