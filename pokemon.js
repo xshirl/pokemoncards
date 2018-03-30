@@ -154,6 +154,12 @@ let cards = shuffle(pokeArray);
     $('.game').append($("<h1 class='pokemon2Name'></h1>"));
     $('.pokemonName').text(`${pokemon1.name}`);
     $('.pokemon2Name').text(`${pokemon2.name}`);
+    $('.game').append($("<h3 class='pokemonMove'></h3>"));
+    $('.game').append($("<h3 class='pokemon2Move'></h3>"));
+    $('.game').append($("<progress id='health' value='100' max='100'></progress>"));
+    $('.game').append($("<progress id='health2' value='100' max='100'></progress>"));
+    let health = document.getElementById("health")
+    let health2 = document.getElementById("health2")
     $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
     $('.playerCard2').css('background-image', 'url(' + pokemon2.img + ')');
     // $('.game').append($("<button class='fight'>Fight</button>"));
@@ -167,172 +173,230 @@ let cards = shuffle(pokeArray);
       $(document).keydown(function(e) {
         if (e.keyCode === 37) {
       if(pokemon1.type === "water" && pokemon2.type === "fire") {
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           loss = 100;
+          health2.value -= loss;
             alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type === "water" && pokemon2.type === "rock") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
       else if (pokemon1.type === 'water' && pokemon2.type === "grass") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if(pokemon1.type === 'water' && pokemon2.type === "dragon") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type === 'water' && pokemon2.type === "electric") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if(pokemon1.type==="fire" && pokemon2.type === "grass") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="fire" && pokemon2.type === "rock") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="fire" && pokemon2.type === "water") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if(pokemon1.type==="grass" && pokemon2.type === "water") {
         loss = 100;
+       health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if(pokemon1.type==="grass" && pokemon2.type === "rock") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="grass" && pokemon2.type === "fire") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="grass" && pokemon2.type === "flying") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="electric" && pokemon2.type === "flying") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="electric" && pokemon2.type === "water") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="psychic" && pokemon2.type === "fighting") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="psychic" && pokemon2.type === "dark") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="dark" && pokemon2.type === "psychic") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="psychic" && pokemon2.type === "dark") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
       else if (pokemon1.type==="rock" && pokemon2.type === "flying") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="rock" && pokemon2.type === "fire") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="flying" && pokemon2.type === "grass") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="flying" && pokemon2.type === "fighting") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="flying" && pokemon2.type === "electric") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="flying" && pokemon2.type === "rock") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="fighting" && pokemon2.type === "rock") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
       else if (pokemon1.type==="fighting" && pokemon2.type === "dark") {
         loss = 100;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="fighting" && pokemon2.type === "psychic") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else if (pokemon1.type==="fighting" && pokemon2.type === "flying") {
         loss = 25;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
       }
 
       else {
         loss = 50;
+        health2.value -= loss;
+        $('.pokemonMove').text(`${pokemon1.moves}`);
           alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
         loses ${loss} HP. ${pokemon2.name} now has ${pokemon2HP-=loss}HP.`);
 
@@ -347,6 +411,7 @@ let cards = shuffle(pokeArray);
           $('.playerCard2').css('background-image', 'url(' + pokemon2.img + ')');
           $('.pokemon2Name').text(`${pokemon2.name}`);
           pokemon2HP = 100;
+          health2.value = 100;
           if (player2pokemon.length === 0) {
             alert("Player 1 wins!");
             $('.game').hide();
@@ -364,6 +429,8 @@ let cards = shuffle(pokeArray);
         if (e.keyCode === 39) {
       if(pokemon2.type === "water" && pokemon1.type === "fire") {
           loss = 100;
+          health.value -= loss;
+          $('.pokemon2Move').text(`${pokemon2.moves}`);
           alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
 
@@ -371,165 +438,221 @@ let cards = shuffle(pokeArray);
 
       else if (pokemon2.type === "water" && pokemon1.type === "rock") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
       else if (pokemon2.type === 'water' && pokemon1.type === "grass") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if(pokemon2.type === 'water' && pokemon1.type === "dragon") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type === 'water' && pokemon1.type === "electric") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if(pokemon2.type==="fire" && pokemon2.type === "grass") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="fire" && pokemon1.type === "rock") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="fire" && pokemon1.type === "water") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if(pokemon2.type==="grass" && pokemon1.type === "water") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if(pokemon2.type==="grass" && pokemon1.type === "rock") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="grass" && pokemon1.type === "fire") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="grass" && pokemon1.type === "flying") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="electric" && pokemon1.type === "flying") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="electric" && pokemon1.type === "water") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="psychic" && pokemon1.type === "fighting") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="psychic" && pokemon1.type === "dark") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="dark" && pokemon1.type === "psychic") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="psychic" && pokemon1.type === "dark") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
       else if (pokemon2.type==="rock" && pokemon1.type === "flying") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="rock" && pokemon1.type === "fire") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="flying" && pokemon1.type === "grass") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="flying" && pokemon1.type === "fighting") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="flying" && pokemon1.type === "electric") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="flying" && pokemon1.type === "rock") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="fighting" && pokemon1.type === "rock") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
       else if (pokemon2.type==="fighting" && pokemon1.type === "dark") {
         loss = 100;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="fighting" && pokemon1.type === "psychic") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else if (pokemon2.type==="fighting" && pokemon1.type === "flying") {
         loss = 25;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);
       }
 
       else {
         loss = 50;
+        health.value -= loss;
+        $('.pokemon2Move').text(`${pokemon2.moves}`);
         alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
         loses ${loss} HP. ${pokemon1.name} now has ${pokemon1HP -= loss}HP.`);;
 
@@ -542,6 +665,7 @@ let cards = shuffle(pokeArray);
           $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
           $('.pokemonName').text(`${pokemon1.name}`);
           pokemon1HP = 100;
+          health.value = 100;
           if (player1pokemon.length === 0) {
             alert("Player 2 wins!");
             $('.game').hide();

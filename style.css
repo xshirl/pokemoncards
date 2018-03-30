@@ -149,3 +149,34 @@ background-color:orange;
   position:relative;
 }
 
+.pokemonMove {
+  font-family:"Lato";
+  color:red;
+  top:300px;
+  left:-10%;
+  position:relative;
+  z-index:2;
+}
+
+.pokemon2Move {
+  font-family:"Lato";
+  color:red;
+  top:260px;
+  left:35%;
+  position:relative;
+  z-index:2;
+}
+
+#health {
+  position:relative;
+  left:-10%;
+  top:250px;
+}
+
+#health2 {
+  position:relative;
+  left:24%;
+  top:250px;
+}
+
+
