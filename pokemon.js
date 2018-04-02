@@ -1,16 +1,14 @@
 
 $(document).ready(function() {
   $("#submit").on('click', function(e) {
-    e.preventDefault();
-    $('#landingForm').addClass('display');
-    showBoard();
-    let player1 = $("#player1").val();
-    console.log(player1);
-
-    let player2 = $("#player2").val();
-    console.log(player2);
-    // showBoard();
+    e.preventDefault(); //allows landing form to disappear with one click
+    $('#landingForm').addClass('display'); //landing form displays none
+    showBoard(); //show card deck
+    let player1 = $("#player1").val(); //value of player 1 name
+    let player2 = $("#player2").val(); //value of player 2 name
   });
+
+  // pokemon objects
 let treecko = {
   name: "Treecko",
   level: 10,
@@ -101,43 +99,30 @@ let beautifly = {
     img: "img/vibrava.png"
   }
 
-
+//array of pokemon
 let pokeArray = [treecko, torchic, mudkip, beautifly, ralts, makuhita, aron, electrike, absol, vibrava];
-
+//shuffles deck of pokemon cards
 let cards = shuffle(pokeArray);
-  let player1pokemon = [];
-  let player2pokemon = [];
+
+  let player1pokemon = []; // player 1's team
+  let player2pokemon = []; // player 2's team
 
   function showBoard() {
     let board = $(".board");
     for (let i = 0; i < 10; i++) {
-    let card = $("<div class='card backCard'></div>");
+    let card = $("<div class='card backCard'></div>"); //shows cards on screen
     board.append(card);
   }
-  let newCard = $('.card');
-  // let cards2 = [];
-  // for (var i = 0; i < 10; i++) {
-  //   cards2.push($('.card')[i]);
-  // }
-  newCard.one('click', function(event) {
-    // for (let i = 0; i < pokearray.length; i++) {
+  let newCard = $('.card'); //selects card
+  newCard.one('click', function(event) { //when player clicks card, pokemon shows up
   let pokePop = pokeArray.pop();
   $(event.target).css('background-image', 'url(' + pokePop.img + ')');
 
-  if (player1pokemon.length < 5) {
-    player1pokemon.push(pokePop);
+  if (player1pokemon.length < 5) { //player 1 pokemon selects 5 cards, then player 2 selects remaining cards
+    player1pokemon.push(pokePop); // with a click, it pushes the pokemon into player's team
   } else {
     player2pokemon.push(pokePop)
   }
-
-
-
-  // so you set up a currentPlayer
-  // initializes as currentPlayer string 'player 1'
-  // push the object into the player's array
-  // you then switch on the click to 'player 2'
-  // and then, you have to set a method when pokeArray.length === 0, you then start the game
-  // because that means, you've assigned pokemon to each player.
 
 
 });
@@ -158,6 +143,16 @@ let cards = shuffle(pokeArray);
     $('.game').append($("<h3 class='pokemon2Move'></h3>"));
     $('.game').append($("<progress id='health' value='100' max='100'></progress>"));
     $('.game').append($("<progress id='health2' value='100' max='100'></progress>"));
+    $('.game').append($("<h1 class='wins'></h1>"));
+    $('.game').append($("<h1 class='wins2'></h1>"));
+    let wins = 0;
+    let wins2 = 0;
+    $('.wins').text(`Wins: ${wins}`);
+    $('.wins2').text(`Wins: ${wins2}`);
+    $('.game').append($("<h2 class='nextPokemon'></h3>"));
+    $('.game').append($("<h2 class='nextPokemon2'></h3>"));
+    $('.nextPokemon').text(`Next Pokemon: ${player1pokemon[player1pokemon.length-1].name}`);
+    $('.nextPokemon2').text(`Next Pokemon: ${player2pokemon[player2pokemon.length-1].name}`);
     let health = document.getElementById("health")
     let health2 = document.getElementById("health2")
     $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
@@ -407,18 +402,33 @@ let cards = shuffle(pokeArray);
 
       // if pokemon HP is 0, change pokemon
         if (pokemon2HP <= 0) {
+          // $('.nextPokemon2').text(`Next Pokemon: ${player2pokemon[player2pokemon.length-1].name}`);
+          // if(player2pokemon.length - 1 === 0) {
+          //   $('.nextPokemon2').text("");
+          // }
           pokemon2 = player2pokemon.pop();
+          wins++;
+          $('.wins').text(`Wins: ${wins}`);
           $('.playerCard2').css('background-image', 'url(' + pokemon2.img + ')');
           $('.pokemon2Name').text(`${pokemon2.name}`);
+
           pokemon2HP = 100;
           health2.value = 100;
           if (player2pokemon.length === 0) {
             alert("Player 1 wins!");
             $('.game').hide();
+            $('.playerCard').appendTo('body');
+            setTimeout(function(){ $('.playerCard').addClass('winner'); }, 1000);
+
+            // $('.game').hide();
             $("body").append("<button class='replay'>Replay </button>")
             $('.replay').on('click', function() {
               window.location.reload(true);
             })
+          }
+          $('.nextPokemon2').text(`Next Pokemon: ${player2pokemon[player2pokemon.length-1].name}`);
+          if(player2pokemon.length - 1 === 0) {
+            $('.nextPokemon2').text("");
           }
         }
       }
@@ -661,6 +671,13 @@ let cards = shuffle(pokeArray);
 
 
       if(pokemon1HP <= 0) {
+
+          // $('.nextPokemon').text(`Next Pokemon: ${player1pokemon[player1pokemon.length-1].name}`);
+          // if(player1pokemon.length - 1 === 0) {
+          //   $('.nextPokemon').text("");
+          // }
+          wins2++;
+          $('.wins2').text(`Wins: ${wins2}`);
           pokemon1 = player1pokemon.pop();
           $('.playerCard').css('background-image', 'url(' + pokemon1.img + ')');
           $('.pokemonName').text(`${pokemon1.name}`);
@@ -669,10 +686,17 @@ let cards = shuffle(pokeArray);
           if (player1pokemon.length === 0) {
             alert("Player 2 wins!");
             $('.game').hide();
+            $('.playerCard2').appendTo('body');
+            setTimeout(function(){ $('.playerCard2').addClass('winner'); }, 1000);
+            // $('.game').hide();
              $("body").append("<button class='replay'>Replay </button>")
             $('.replay').on('click', function() {
               window.location.reload(true);
             });
+          }
+          $('.nextPokemon').text(`Next Pokemon: ${player1pokemon[player1pokemon.length-1].name}`);
+          if(player1pokemon.length - 1 === 0) {
+            $('.nextPokemon').text("");
           }
         }
       }
@@ -680,66 +704,6 @@ let cards = shuffle(pokeArray);
   });
 
 
-
-  //  $('.fight').on('click', function() {
-  //   alert("hello");
-  // });
-     // let player1HP = 100;
-     //  let player2HP = 100;
-     //  let pokemon1 = player1pokemon.pop();
-     //  console.log(player1pokemon.pop().img);
-     //  let pokemon2 = player2pokemon.pop();
-     //  console.log(player1pokemon.pop().img);
-      // alert(`${pokemon1.name} uses ${pokemon1.move}. ${pokemon2} loses 50HP.`);
-
-      // if(pokemon1.type === "water" && pokemon2.type === "fire") {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-      //   loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-      // }
-      //  else if (player1pokemon.type === 'water' && player2pokemon.type === "grass") {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-      //   loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-      // } else {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
-      //   loses 50 HP. ${pokemon2.name} now has ${pokemon2HP-=50}HP.`);
-      // }
-
-      // if(pokemon2.type === "water" && pokemon1.type === "fire") {
-      //   alert(`${pokemon2.name} uses ${pokemon2.moves}. It is super effective! ${pokemon1.name}
-      //   loses 100 HP. ${pokemon1.name} now has ${pokemon1HP-=100}HP.`);
-      // }
-      //  else if (player2pokemon.type === 'water' && player1pokemon.type === "grass") {
-      //   alert(`${pokemon2.name} uses ${pokemon2.moves}. It is not effective! ${pokemon1.name}
-      //   loses 25 HP. ${pokemon1.name} now has ${pokemon1HP-=25}HP.`);
-      // } else {
-      //   alert(`${pokemon2.name} uses ${pokemon2.moves}. ${pokemon1.name}
-      //   loses 50 HP. ${pokemon1.name} now has ${pokemon1HP-=50}HP.`);
-      // }
-
-      // if(pokemon1.type === "water" && pokemon2.type === "fire") {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. It is super effective! ${pokemon2.name}
-      //   loses 100 HP. ${pokemon2.name} now has ${pokemon2HP-=100}HP.`);
-      // }
-      //  else if (player1pokemon.type === 'water' && player2pokemon.type === "grass") {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. It is not effective! ${pokemon2.name}
-      //   loses 25 HP. ${pokemon2.name} now has ${pokemon2HP-=25}HP.`);
-      // } else {
-      //   alert(`${pokemon1.name} uses ${pokemon1.moves}. ${pokemon2.name}
-      //   loses 50 HP. ${pokemon2.name} now has ${pokemon2HP-=50}HP.`);
-      // }
-
-
-
-      // } else if (player1pokemon.type === 'water' && player2pokemon.type === "grass") {
-      //   player2HP -= 25;
-      //   alert(`${player1pokemon.name} has ${player1HP}. ${player2pokemon} has ${player2HP}`)
-      // } else {
-      //   player2HP -=50;
-      //   alert(`${player1pokemon.name} has ${player1HP}. ${player2pokemon} has ${player2HP}`)
-      // }
-      // if (player1HP === 0 || player2HP === 0) {
-      //   $('.game').append($("<button class='next'>Next Pokemon</button>"));
-      // }
 
 
 

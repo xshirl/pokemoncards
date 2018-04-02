@@ -130,7 +130,9 @@ background-color:orange;
   font-size:30px;
   text-align:center;
   display:block;
-  margin:auto;
+  position:relative;
+  top:100px;
+  left:300px;
 }
 
 .pokemonName {
@@ -179,4 +181,53 @@ background-color:orange;
   top:250px;
 }
 
+.nextPokemon {
+  font-family:"Lato";
+  color:white;
+  top:200px;
+  left:-30%;
+  position:relative;
+  z-index:2;
+}
+
+.nextPokemon2 {
+  font-family:"Lato";
+  color:white;
+  top:160px;
+  left:50%;
+  position:relative;
+  z-index:2;
+}
+
+.winner {
+    width: 400px;
+    height: 600px;
+    position:relative;
+    top:0px;
+    left:100px;
+    -webkit-transition-property: height, width;
+    -webkit-transition-duration: 3s;
+    -moz-transition-property: height, width;
+    -moz-transition-duration: 3s;
+    transition-property: height, width;
+    transition-duration: 3s;
+}
+
+.wins {
+  font-family:"Lato";
+  color:white;
+  margin-top:0px;
+  left:-10%;
+  position:relative;
+  top:-200px;
+}
+
+.wins2 {
+  font-family:"Lato";
+  color:white;
+  margin-top:0px;
+  left:35%;
+  position:relative;
+  top:-260px;
+}
 
