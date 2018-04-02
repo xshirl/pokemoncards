@@ -1,11 +1,31 @@
 
 $(document).ready(function() {
+  let player1; //value of player 1 name
+  let player2; //value of player 2 name
+
+  function getUsername1() {
+    player1 = $("#player1").val(); //value of player 1 name
+    if(player1 === "") {
+      player1 = "Player 1";
+    }
+    return player1;
+
+  }
+
+  function getUsername2() {
+     player2 = $("#player2").val(); //value of player 2 name
+     if (player2 === "") {
+      player2 = "Player 2";
+     }
+    return player2;
+  }
+
   $("#submit").on('click', function(e) {
     e.preventDefault(); //allows landing form to disappear with one click
     $('#landingForm').addClass('display'); //landing form displays none
     showBoard(); //show card deck
-    let player1 = $("#player1").val(); //value of player 1 name
-    let player2 = $("#player2").val(); //value of player 2 name
+    getUsername1();
+    getUsername2();
   });
 
   // pokemon objects
@@ -414,14 +434,19 @@ let cards = shuffle(pokeArray);
 
           pokemon2HP = 100;
           health2.value = 100;
+
+
           if (player2pokemon.length === 0) {
-            alert("Player 1 wins!");
+            getUsername1();
+            alert(`${player1} wins!`);
             $('.game').hide();
             $('.playerCard').appendTo('body');
             setTimeout(function(){ $('.playerCard').addClass('winner'); }, 1000);
 
             // $('.game').hide();
             $("body").append("<button class='replay'>Replay </button>")
+            $('body').append("<h2 class='winner1'></h2>")
+            $(".winner1").text(`Winner: ${player1}`);
             $('.replay').on('click', function() {
               window.location.reload(true);
             })
@@ -683,13 +708,16 @@ let cards = shuffle(pokeArray);
           $('.pokemonName').text(`${pokemon1.name}`);
           pokemon1HP = 100;
           health.value = 100;
+          getUsername2();
           if (player1pokemon.length === 0) {
-            alert("Player 2 wins!");
+            alert(`${player2} wins!`);
             $('.game').hide();
             $('.playerCard2').appendTo('body');
             setTimeout(function(){ $('.playerCard2').addClass('winner'); }, 1000);
             // $('.game').hide();
              $("body").append("<button class='replay'>Replay </button>")
+             $('body').append("<h2 class='winner2'></h2>")
+            $(".winner2").text(`Winner: ${player2}`);
             $('.replay').on('click', function() {
               window.location.reload(true);
             });

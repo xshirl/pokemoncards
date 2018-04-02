@@ -193,7 +193,7 @@ background-color:orange;
 .nextPokemon2 {
   font-family:"Lato";
   color:white;
-  top:160px;
+  top:150px;
   left:50%;
   position:relative;
   z-index:2;
@@ -229,5 +229,23 @@ background-color:orange;
   left:35%;
   position:relative;
   top:-260px;
+}
+
+.winner1 {
+  font-family:"Lato";
+  color:white;
+  margin-top:0px;
+  left:-200px;
+  position:relative;
+  top:-100px;
+}
+
+.winner2 {
+  font-family:"Lato";
+  color:white;
+  margin-top:0px;
+  left:-200px;
+  position:relative;
+  top:-100px;
 }
 
