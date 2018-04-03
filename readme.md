@@ -19,7 +19,7 @@ A winning player screen shows with the winning pokemon. A replay button is shown
 
 INSTRUCTIONS
 1. Input your name.
-2. Select five cards.
+2. Select five cards each.
 3. Press LEFT key if you're player 1 and RIGHT key if you're player 2 to fight. 
 
 TECHNOLOGIES AND WIREFRAMES
@@ -42,7 +42,8 @@ Take turns
 Change pokemon when pokemon's HP is zero.
 See end of game when one player has no more pokemon.
 
-I used Jquery for the game logic, for example, when the pokemon battle, I integrated if else statements so that based on the pokemon's type, a certain amount of HP would be lost for the opponent's pokemon. I also used Jquery to create the pokemon objects with their name, type, and moves so I can use that later in the game. Later in the game, I show the name, moves and next pokemon up on the screen. 
+I used Jquery for the game logic, for example, when the pokemon battle, I integrated if else statements so that based on the pokemon's type, a certain amount of HP would be lost for the opponent's pokemon. I also used Javascript to create the pokemon objects with their name, type, and moves so I can use that later in the game. Later in the game, I show the name, moves and next pokemon up on the screen. I ended up not using the speed of the pokemon. I used Jquery so that the players press the left key and right key to make their move. Also I used Javascript so that I randomized the cards and shuffle them so that each time the players play, they would be selecting 
+different pokemon each time and they won't know what pokemon they select. 
 
 EXPLANATION OF GAME
 First the players input their names into the form, which is saved and used for later. The submit button's click triggers the page with the randomly shuffled cards to be shown. The cards were randomly shuffled using
