@@ -22,8 +22,27 @@ INSTRUCTIONS
 2. Select five cards.
 3. Press LEFT key if you're player 1 and RIGHT key if you're player 2 to fight. 
 
-TECHNOLOGIES
-HTML, CSS, Javascript, and Jquery were used. 
+TECHNOLOGIES AND WIREFRAMES
+HTML, CSS, Javascript, and Jquery were used. I wireframed the game to have a landing page, a game initalization page, a game play page, and a game winner page. 
+
+MVP:
+Game initialization:
+shuffling cards
+displaying backs of cards
+flipping cards - CSS transitions
+pushing pokemon into player's array
+create pokemon objects with name, type, HP, moves
+Game play:
+Show pokemon
+Fight
+first pokemon is one with higher speed, if/else compare speeds
+Pull move from move array from pokemon object
+Update HP for both pokemon
+Take turns
+Change pokemon when pokemon's HP is zero.
+See end of game when one player has no more pokemon.
+
+I used Jquery for the game logic, for example, when the pokemon battle, I integrated if else statements so that based on the pokemon's type, a certain amount of HP would be lost for the opponent's pokemon. I also used Jquery to create the pokemon objects with their name, type, and moves so I can use that later in the game. Later in the game, I show the name, moves and next pokemon up on the screen. 
 
 EXPLANATION OF GAME
 First the players input their names into the form, which is saved and used for later. The submit button's click triggers the page with the randomly shuffled cards to be shown. The cards were randomly shuffled using
