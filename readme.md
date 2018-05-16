@@ -1,5 +1,10 @@
 POKEMON CARDS
 
+![Screenshot](./pokemon0.png)
+![Screenshot](./pokemon1.png)
+![Screenshot](./pokemon2.png)
+![Screenshot](./pokemon3.png)
+
 Wireframe: https://github.com/xshirl/pokemoncards/blob/master/img/wireframe.jpg
 GitHub Page: https://xshirl.github.io/pokemoncards/
 
